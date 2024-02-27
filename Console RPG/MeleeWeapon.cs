@@ -2,7 +2,7 @@
 {
     class MeleeWeapon : Weapon
     {
-        public static MeleeWeapon placeHolderSword = new MeleeWeapon("Place Holder Sword", "Tessstinnng", 1000, 1, 10);
+        public static MeleeWeapon placeHolderSword = new MeleeWeapon("Place Holder Sword", "Tessstinnng", 1000, 1, 100);
 
         public MeleeWeapon(string name, string description, int shopPrice, int maxAmount, int damage) : base(name, description, shopPrice, maxAmount, damage)
         { }

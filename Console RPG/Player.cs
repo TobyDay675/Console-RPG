@@ -41,19 +41,25 @@ namespace Console_RPG
             {
                 heldWeapon.Use(user, target);
                 Console.WriteLine($"{this.name} attacked {target.name} for {heldWeapon.damage} damage!\n");
-                Console.WriteLine($"{target.name}'s hp is now:{target.currentHP}"); 
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             if (heldWeapon is RangedWeapon)
             {
                 heldWeapon.Use(user, target);
                 Console.WriteLine($"{this.name} attacked {target.name} for {calculatedDamage} damage!\n");
-                Console.WriteLine($"{target.name}'s hp is now:{target.currentHP}");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
+                Console.ForegroundColor = ConsoleColor.White;
             }
             if (heldWeapon is MeleeWeapon)
             {
                 target.currentHP -= calculatedDamage;
                 Console.WriteLine($"{this.name} attacked {target.name} for {calculatedDamage} damage!\n");
-                Console.WriteLine($"{target.name}'s hp is now:{target.currentHP}");
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
         public override void DoTurn(List<Player> players, List<Enemy> enemies)
@@ -71,6 +77,12 @@ namespace Console_RPG
                 this.stats.maxHP += levelUpIncrease.maxHP;
                 this.currentExperience = levelUpCeiling - this.currentExperience;
                 levelUpCeiling += levelUpCeiling;
+                this.currentHP = this.stats.maxHP;
+                this.currentMana = this.stats.maxMana;
+                levelUpIncrease.maxHP = levelUpIncrease.maxHP + 5;
+                levelUpIncrease.maxMana = levelUpIncrease.maxMana + 5;
+                levelUpIncrease.strength = levelUpIncrease.strength + 5;
+                levelUpIncrease.defense = levelUpIncrease.defense + 5;
                 Console.WriteLine($"You leveled up!! Your level is now {this.level}. Keep on keeping on!\n");
 
 

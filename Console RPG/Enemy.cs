@@ -20,12 +20,33 @@ namespace Console_RPG
         public static BossEnemy arenaChampion = new BossEnemy("The Champion", hp: 10000, mana: 1000, new Stats(strength: 25, defense: 15, hp: 5000, mana: 1000), doorknobDropCount: 10000, expDropCount: 2500, maxMana: 1000, attackCost: 500);
         public static NormalEnemy bubbleBehemoth = new NormalEnemy("Bubble Behemoth", hp: 5000, mana: 10, new Stats(strength: 10, defense: 5, hp: 5000, mana: 10), doorknobDropCount: 250, expDropCount: 500);
         public static MagicEnemy bubbleSorcerer = new MagicEnemy("Bubble Sorcerer", hp: 250, mana: 100, new Stats(strength: 2, defense: 2, hp: 600, mana: 100), doorknobDropCount: 100, expDropCount: 250, maxMana: 100, attackCost: 25);
-        public static NormalEnemy summonedBubble = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 10);
-        public static NormalEnemy theDirtyBubble = new NormalEnemy("The Dirty Bubble", hp: 500, mana: 10, new Stats(strength: 8, defense: 0, hp: 500, mana: 10), doorknobDropCount: 50, expDropCount: 45);
-        public static NormalEnemy bubbleGladiator = new NormalEnemy("Bubble Gladiator", hp: 150, mana: 10, new Stats(strength: 6, defense: 0, hp: 150, mana: 10), doorknobDropCount: 50, expDropCount: 100);
-        public static NormalEnemy armoredBubble = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 4, defense: 5, hp: 150, mana: 10), doorknobDropCount: 25, expDropCount: 50);
-        public static NormalEnemy bubbleFighter = new NormalEnemy("Bubble Fighter", hp: 50, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 25);
-        public static NormalEnemy bubbleArcher = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 25);
+        public static NormalEnemy summonedBubbleA = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
+        public static NormalEnemy summonedBubbleB = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
+        public static NormalEnemy summonedBubbleC = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
+        public static NormalEnemy summonedBubbleD = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
+        public static NormalEnemy summonedBubbleE = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
+        public static NormalEnemy theDirtyBubble = new NormalEnemy("The Dirty Bubble", hp: 500, mana: 10, new Stats(strength: 8, defense: 0, hp: 500, mana: 10), doorknobDropCount: 50, expDropCount: 200);
+        public static NormalEnemy bubbleGladiatorA = new NormalEnemy("Bubble Gladiator", hp: 150, mana: 10, new Stats(strength: 6, defense: 0, hp: 150, mana: 10), doorknobDropCount: 50, expDropCount: 150);
+        public static NormalEnemy bubbleGladiatorB = new NormalEnemy("Bubble Gladiator", hp: 150, mana: 10, new Stats(strength: 6, defense: 0, hp: 150, mana: 10), doorknobDropCount: 50, expDropCount: 150);
+        public static NormalEnemy bubbleGladiatorC = new NormalEnemy("Bubble Gladiator", hp: 150, mana: 10, new Stats(strength: 6, defense: 0, hp: 150, mana: 10), doorknobDropCount: 50, expDropCount: 150);
+        public static NormalEnemy bubbleGladiatorD = new NormalEnemy("Bubble Gladiator", hp: 150, mana: 10, new Stats(strength: 6, defense: 0, hp: 150, mana: 10), doorknobDropCount: 50, expDropCount: 150);
+        public static NormalEnemy armoredBubbleA = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 4, defense: 5, hp: 150, mana: 10), doorknobDropCount: 25, expDropCount: 100);
+        public static NormalEnemy armoredBubbleB = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 4, defense: 5, hp: 150, mana: 10), doorknobDropCount: 25, expDropCount: 100);
+        public static NormalEnemy armoredBubbleC = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 4, defense: 5, hp: 150, mana: 10), doorknobDropCount: 25, expDropCount: 100);
+        public static NormalEnemy armoredBubbleD = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 4, defense: 5, hp: 150, mana: 10), doorknobDropCount: 25, expDropCount: 100);
+        public static NormalEnemy armoredBubbleE = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 4, defense: 5, hp: 150, mana: 10), doorknobDropCount: 25, expDropCount: 100);
+        public static NormalEnemy bubbleArcherA = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleArcherB = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleArcherC = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleArcherD = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleArcherE = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleArcherF = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleArcherG = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleFighterA = new NormalEnemy("Bubble Fighter", hp: 50, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleFighterB = new NormalEnemy("Bubble Fighter", hp: 50, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleFighterC = new NormalEnemy("Bubble Fighter", hp: 50, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleFighterD = new NormalEnemy("Bubble Fighter", hp: 50, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
+        public static NormalEnemy bubbleFighterE = new NormalEnemy("Bubble Fighter", hp: 50, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 10, expDropCount: 50);
 
         public int doorknobsDroppedOnDefeated;
         public int experiencePointsDropped;
@@ -69,10 +90,13 @@ namespace Console_RPG
             {
                 int calculatedDamage = this.stats.strength - target.stats.defense;
                 target.currentHP -= calculatedDamage;
-                Console.WriteLine($"{target.name}'s hp is now:{target.currentHP}\n");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Your hp is now: {target.currentHP}\n");
+                Console.ForegroundColor = ConsoleColor.Cyan;
             }
             if (this.currentHP < 0)
             {
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("This enemy is dead you should attack the other ones now!\n");
             }
             
@@ -108,19 +132,22 @@ namespace Console_RPG
                     this.currentMana -= attackCost;
                     int calculatedDamage = maxMana / 4;
                     target.currentHP -= calculatedDamage;
-                    Console.WriteLine($"{target.name}'s hp is now:{target.currentHP}");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Your hp is now: {target.currentHP}");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                 }
                 if (this.currentMana == 0)
                 {
                     int calculatedDamage = this.stats.strength * 10;
                     this.currentHP -= calculatedDamage;
-                    Console.WriteLine($"The enemy is out of mana... it hit itself for {calculatedDamage} damage.... idiot");
+                    Console.WriteLine($"The enemy is out of mana... it hit itself for {calculatedDamage} damage.... idiot \n");
                     this.currentMana += this.maxMana / 2;
                 }
             }
             if (this.currentHP < 0)
             {
-                Console.WriteLine("This enemy is dead you should attack the other ones now!\n");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("DEAD \n");
             }
 
         }
@@ -157,7 +184,9 @@ namespace Console_RPG
                     Console.WriteLine($"ITS A MELEE ATTACK!!!!\n");
                     int calculatedMeleeDamage = this.stats.strength - target.stats.defense;
                     target.currentHP -= calculatedMeleeDamage;
-                    Console.WriteLine($"{target.name}'s hp is now:{target.currentHP}");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Your hp is now: {target.currentHP}\n");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     if (this.currentMana == 0)
                     {
                         this.currentMana += this.maxMana / 2;
@@ -169,13 +198,16 @@ namespace Console_RPG
                     this.currentMana -= attackCost;
                     int calculatedMagicDamage = maxMana / 4;
                     target.currentHP -= calculatedMagicDamage;
-                    Console.WriteLine($"{target.name}'s hp is now:{target.currentHP}");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Your hp is now: {target.currentHP} \n");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                 }
             }
-                if (this.currentHP < 0)
-                {
-                    Console.WriteLine("This enemy is dead you should attack the other ones now!\n");
-                }
+            if (this.currentHP < 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("This enemy is dead you should attack the other ones now!\n");
+            }
         }
 
         public override void DoTurn(List<Player> players, List<Enemy> enemies)
