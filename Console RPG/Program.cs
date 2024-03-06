@@ -10,7 +10,7 @@ namespace Console_RPG
             Location.waterColorFields.SetNearbyLocations(north: Location.bubbleLand);
             Location.bubbleLand.SetNearbyLocations(north: Location.theArena);
             Location.theArena.SetNearbyLocations(north: Location.theArenaFloor1, east: Location.cavernOfDoors, west: Location.nopeHQ);
-            Player.player.heldWeapon = MeleeWeapon.placeHolderSword;
+            Player.player.heldWeapon = null;
             Location.exitPortal.north = Location.bubbleLand;
 
             Location.theArenaFloor1.north = Location.theArenaFloor2;

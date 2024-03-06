@@ -6,22 +6,20 @@ using System.Runtime.CompilerServices;
 
 namespace Console_RPG
 {
-    class Battle
+    class Battle : LocationFeature
     {
-        public bool isResolved;
         public bool battleAgain;
         public List<Enemy> enemies; 
 
 
 
-        public Battle(List<Enemy> enemies, bool battleAgain = false)
+        public Battle(List<Enemy> enemies, bool battleAgain = false) :base(false)
         {
-            this.isResolved = false;
             this.enemies = enemies;
             this.battleAgain = battleAgain;
         }
 
-        public void Resolve(List<Player> players)
+        public override void Resolve(List<Player> players)
         {
             if (isResolved == true)
             {
@@ -34,17 +32,23 @@ namespace Console_RPG
                 // Run this code on each of the players
                 foreach (var player in players)
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"It's {player.name}'s turn.\n");
-                    player.DoTurn(players, enemies);
+                    if (player.currentHP > 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"It's {player.name}'s turn.\n");
+                        player.DoTurn(players, enemies);
+                    }
                 }
 
                 // Run this code on each of the enemies
                 foreach (var enemy in enemies)
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkCyan;
-                    Console.WriteLine($"It's {enemy.name}'s turn\n");
-                    enemy.DoTurn(players, enemies);
+                    if (enemy.currentHP > 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkCyan;
+                        Console.WriteLine($"It's {enemy.name}'s turn\n");
+                        enemy.DoTurn(players, enemies);
+                    }
                 }
 
                 if (players.TrueForAll(player => player.currentHP <= 0))
@@ -61,6 +65,8 @@ namespace Console_RPG
                 if (enemies.TrueForAll(enemy => enemy.currentHP <= 0))
                 {
                     didWinBattle = true;
+                    Console.ForegroundColor= ConsoleColor.Yellow; 
+                    Console.WriteLine($"You did it!! Congrats you now have blood on your hands :) \n");
                     Console.WriteLine($"Those enemies were holding Doorknobs! And you stole them from their corpses... you are horrible \n");
                     // Doorknob add 
                     foreach (var enemy in enemies)
@@ -74,9 +80,9 @@ namespace Console_RPG
                         Player.player.currentExperience += enemy.experiencePointsDropped;
                         Player.player.LevelUp();
                     }
-                    
+                    Console.ForegroundColor = ConsoleColor.Cyan; 
 
-                    Console.WriteLine($"You did it!! Congrats you now have blood on your hands :) \n");
+                    
                     break;
                 }
             }

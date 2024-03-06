@@ -7,13 +7,14 @@ namespace Console_RPG
 {
     class Location
     {
+        //Misc Areas
         public static Location doorRoom = new Location("Door Room", "Will you make the right choice. \n");
-        public static Location bubbleLand = new Location("Bubble Land", "Porcupines not welcome. \n");
+        public static Location bubbleLand = new Location("Bubble Land", "Porcupines not welcome. \n", new Shop("Soapy Saloon", new List<Item>() { HealthPotionItem.smallHealthPotion, HealthPotionItem.regularHealthPotion, HealthPotionItem.largeHealthPotion}, new List<Equipment>() { MeleeWeapon.dagger, MeleeWeapon.theSword, MeleeWeapon.bubblePopper }));
         public static Location waterColorFields = new Location("Watercolor Field", "Melt in the art. \n");
-        public static Location cavernOfDoors = new Location("Cavern Of Doors", "I swear if I see one more door. \n");
-        public static Location doorCultLair = new Location("Lair of the Door Cult", "ALL HAIL THE HINDGES FROM ABOVE. \n", unlockedByDefault: false);
-        public static Location nopeHQ = new Location("Nope Squad HQ", "Nope. \n", unlockedByDefault: false);
         public static Location exitPortal = new Location("Exit Portal", "Get outtaaa here. \n");
+        //Cavern of Doors
+        public static Location cavernOfDoors = new Location("Cavern Of Doors", "I swear if I see one more door. \n");
+        //ARENA
         public static Location theArena = new Location("THE BUBBLE ARENA!!!", "Fight...FiGhT...FIGHTTTTT!!!! \n", isCheckpoint: true);
         public static Location theArenaFloor1 = new Location("Floor 1", "Its a battling time. \n", new Battle(new List<Enemy>() { Enemy.bubbleFighterA, Enemy.bubbleFighterB, Enemy.bubbleArcherA}), true);
         public static Location theArenaFloor2 = new Location("Floor 2", "Boy these battles are soapy.", new Battle(new List<Enemy>() { Enemy.bubbleArcherB, Enemy.bubbleArcherC, Enemy.bubbleArcherD }), true);
@@ -25,12 +26,16 @@ namespace Console_RPG
         public static Location theArenaFloor8 = new Location("Floor 8", "The Champion is near. \n", new Battle(new List<Enemy>() { Enemy.bubbleSorcerer, Enemy.summonedBubbleA, Enemy.summonedBubbleB, Enemy.summonedBubbleC, Enemy.summonedBubbleD, Enemy.summonedBubbleE }), true);
         public static Location theArenaFloor9 = new Location("Floor 9", "The Champion is waiting. \n", new Battle(new List<Enemy>() { Enemy.bubbleBehemoth, Enemy.bubbleFighterC, Enemy.bubbleFighterD}), true);
         public static Location theArenaFloor10 = new Location("Floor 10: Champion's Room", "You are now the champion. \n", new Battle(new List<Enemy>() { Enemy.arenaChampion }), true);
+        
+        //Locked forever for now
+        public static Location doorCultLair = new Location("Lair of the Door Cult", "ALL HAIL THE HINDGES FROM ABOVE. \n", unlockedByDefault: false);
+        public static Location nopeHQ = new Location("Nope Squad HQ", "Nope. \n", unlockedByDefault: false);
         public static Location theFinalDoor = new Location("The Final Door", "One last door to open. \n", unlockedByDefault: false);
         public static Location narratorRoom = new Location("???", "How did you get here? \n", unlockedByDefault: false);
 
         public string name;
         public string description;
-        public Battle battle;
+        public LocationFeature interaction;
         public bool unlockedByDefault;
         public bool isCheckpoint;
 
@@ -38,11 +43,11 @@ namespace Console_RPG
 
         public static Location checkpoint;
 
-        public Location(string name, string description, Battle battle = null, bool unlockedByDefault = true, bool isCheckpoint = false)
+        public Location(string name, string description, LocationFeature interaction = null, bool unlockedByDefault = true, bool isCheckpoint = false)
         {
             this.name = name;
             this.description = description;
-            this.battle = battle;
+            this.interaction = interaction;
             this.unlockedByDefault = unlockedByDefault;
             this.isCheckpoint = isCheckpoint;   
         }
@@ -172,7 +177,7 @@ namespace Console_RPG
             }
             else
             {
-                Console.WriteLine("Fine then don't go into any door....");
+                Console.WriteLine("Fine then don't go into any door....\n");
                 Thread.Sleep(1000);
                 Console.WriteLine("We'll just sit here for an enternity I guess....... \n");
                 Thread.Sleep(1000);
@@ -184,7 +189,7 @@ namespace Console_RPG
         public void Resolve(List<Player> players)
         {
             // Only resolve a battle if there is a battle to resolve. Null checking.
-            battle?.Resolve(players);
+            interaction?.Resolve(players);
 
             if (this.unlockedByDefault == true)
             {
@@ -194,37 +199,48 @@ namespace Console_RPG
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;   
                     Console.WriteLine("*Checkpoint added* \n");
+                    Console.ForegroundColor= ConsoleColor.Cyan;    
                     checkpoint = this; 
                 }
                
 
                 if (!(north is null))
-                Console.WriteLine("NORTH: " + this.north.name);
+                Console.WriteLine($"NORTH: {this.north.name}\n");
 
                 if (!(east is null))
-                Console.WriteLine("EAST: " + this.east.name);
+                Console.WriteLine($"EAST: {this.east.name}\n");
 
                 if (!(south is null))
-                Console.WriteLine("SOUTH: " + this.south.name);
+                Console.WriteLine($"SOUTH: {this.south.name}\n");
 
                 if (!(west is null))
-                Console.WriteLine("WEST: " + this.west.name);
+                {
+                    Console.WriteLine($"WEST: {this.west.name}\n");
+                }
+                Console.WriteLine("If you want to access your inventory, type | INVENTORY");
+                
 
-                string direction = Console.ReadLine();
+                string choice = Console.ReadLine();
                 Location nextLocation = null;
 
-                if (direction == "NORTH")
+                if (choice == "NORTH")
                     nextLocation = this.north;
-                else if (direction == "EAST")
+                else if (choice == "EAST")
                     nextLocation = this.east;
-                else if (direction == "SOUTH")
+                else if (choice == "SOUTH")
                     nextLocation = this.south;
-                else if (direction == "WEST")
+                else if (choice == "WEST")
                     nextLocation = this.west;
+                else if (choice == "INVENTORY")
+                {
+                    Inventory(Player.player);
+                    this.Resolve(players);
+                }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine("Oops you said something wrong... try again. \n");
+                    Console.ForegroundColor= ConsoleColor.Cyan;
                     this.Resolve(players);
                 }
 
@@ -235,11 +251,104 @@ namespace Console_RPG
                 Console.WriteLine("Hmmm this place seems to be locked... maybe you can get a key somewhere?\n");
                 Console.WriteLine("I'll bring you back to your last checkpoint. \n");
                 checkpoint.Resolve(players);
-            }
-            
-            
+            }  
+        }
 
-            
+        public static void Inventory(Player player)
+        {
+            List<Entity> playerChoice = new List<Entity>() {player};
+            while (true)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("What do you want to do?\n");
+                Console.WriteLine("USE ITEM || SWITCH EQUIP || STATS || LEAVE\n");
+                string choice = Console.ReadLine();
+                if (choice == "USE ITEM")
+                {   if (Player.inventory.Count == 0)
+                    {
+                        Console.WriteLine("You've got nothing to use\n");
+                    }
+                    else
+                    {
+                        Item item = Player.player.ChooseItem(Player.inventory);
+                        Entity target = Player.player.ChooseTarget(playerChoice);
+                        item.Use(player, target);
+                        Player.inventory.Remove(item);
+                    }
+                }
+                else if (choice == "SWITCH EQUIP")
+                {
+                    if (Player.equipmentInventory.Count == 0)
+                    {
+                        Console.WriteLine("You've have no equipments.\n");
+                    }
+                    else
+                    {
+                        Equipment equipment = ChooseEquipment(Player.equipmentInventory);
+                        if (equipment.isEquipped == false)
+                        {
+                            equipment.Equip(Player.player);
+                            Console.WriteLine($"You have now equipped {equipment.name}\n");
+                        }
+                        else if (equipment.isEquipped == true)
+                        {
+                            equipment.UnEquip(Player.player);
+                            Console.WriteLine($"You have now unequpped {equipment.name}\n");
+                        }
+                    }
+                }
+                else if (choice == "STATS")
+                {
+                    Console.WriteLine("Here are your stats.\n");
+                    Console.WriteLine($"Max HP: {player.stats.maxHP}\n");
+                    Console.WriteLine($"Max Mana: {player.stats.maxMana}\n");
+                    Console.WriteLine($"Strength: {player.stats.strength} \n");
+                    Console.WriteLine($"Defense: {player.stats.defense} \n");
+                    Console.WriteLine($"Level: {player.level}\n");
+                    Console.WriteLine($"Exp: {player.currentExperience}\n");
+                    Console.WriteLine($"Doorknob Count: {player.doorKnobCount}\n");
+                    if (player.heldWeapon != null)
+                    {
+                        Console.WriteLine($"Equipped Weapon: {player.heldWeapon.name}\n");
+                    }
+                    
+                    if (player.equippedArmor != null)
+                    {
+                        Console.WriteLine($"Equipped Armor: {player.equippedArmor.name}\n");
+                    }
+                    
+                }
+                else if (choice == "LEAVE")
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("That's not an option try again!\n");
+                }
+            }
+        }
+        public static Equipment ChooseEquipment(List<Equipment> choices)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Type in the number of the item you want to equip/unequip:\n");
+            for (int i = 0; i < choices.Count; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($"{i + 1}: {choices[i].name} (Is the item Equipped: {choices[i].isEquipped})");
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+            }
+
+            try
+            {
+                int index = Convert.ToInt32(Console.ReadLine());
+                return choices[index - 1];
+            }
+            catch (Exception ex)
+            {
+                return ChooseEquipment(choices);
+            }
         }
     }
 }

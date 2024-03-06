@@ -10,13 +10,15 @@ namespace Console_RPG
         public string description;
 
         public int shopPrice;
+        public int sellPrice;
         public int maxAmount;
 
-        public Item(string name, string description, int shopPrice, int maxAmount)
+        public Item(string name, string description, int shopPrice, int sellPrice, int maxAmount)
         {
             this.name = name;
             this.description = description;
             this.shopPrice = shopPrice;
+            this.sellPrice = sellPrice;
             this.maxAmount = maxAmount;
         }
 

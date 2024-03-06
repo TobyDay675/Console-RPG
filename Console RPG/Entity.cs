@@ -14,7 +14,8 @@ namespace Console_RPG
 
         // This is called composition. Composition is awesome!
         public Stats stats;
-        public Weapon heldWeapon; 
+        public Weapon heldWeapon;
+        public Armor equippedArmor;
 
         public Entity(string name, int hp, int mana, Stats stats)
         {
