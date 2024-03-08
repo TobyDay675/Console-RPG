@@ -9,12 +9,11 @@ namespace Console_RPG
         public List<Item> nonEquipmentLoot;
         public List<Equipment> equipmentLoot;
 
-        public TreasureRoom(bool isResolved, List<Item> nonEquipmentLoot, List<Equipment> equipmentLoot) : base(isResolved)
+        public TreasureRoom(List<Item> nonEquipmentLoot, List<Equipment> equipmentLoot) : base(false)
         {
             this.nonEquipmentLoot = nonEquipmentLoot;
             this.equipmentLoot = equipmentLoot;
         }
-
         public override void Resolve(List<Player> players)
         {
             Console.WriteLine("Seems like there is some loot here.\n");

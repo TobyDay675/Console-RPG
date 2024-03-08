@@ -17,7 +17,7 @@ namespace Console_RPG
         public int currentExperience;
         public int doorKnobCount;
 
-        public Stats levelUpIncrease = new Stats(10, 5, 10, 25);
+        public Stats levelUpIncrease = new Stats(10, 0, 10, 25);
 
         public Player(string name, int hp, int mana, Stats stats, int level, int exp, int doorknob) : base(name, hp, mana, stats)
         {
@@ -69,6 +69,27 @@ namespace Console_RPG
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Type in the number of the item you want to equip/unequip:\n");
+            for (int i = 0; i < choices.Count; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($"{i + 1}: {choices[i].name} (Is the item Equipped: {choices[i].isEquipped})");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            }
+
+            try
+            {
+                int index = Convert.ToInt32(Console.ReadLine());
+                return choices[index - 1];
+            }
+            catch (Exception ex)
+            {
+                return ChooseEquipment(choices);
+            }
+        }
+        public static Equipment ChooseEquipmentDescribe(List<Equipment> choices)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Type in the number of the equipment you want to see the description of:\n");
             for (int i = 0; i < choices.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -140,7 +161,7 @@ namespace Console_RPG
             Console.WriteLine("What do you want to do?");
             if (heldWeapon is RangedWeapon castedWeapon)
             {
-                Console.WriteLine($"Hey just so you know you have {castedWeapon.ammo} ammo left.. don't know if you want to use your weapon or not");
+                Console.WriteLine($"Hey just so you know you have {castedWeapon.currentAmmo} ammo left.. don't know if you want to use your weapon or not");
             }
             else if (heldWeapon is ManaWeapon castedWeapon2)
             {
@@ -155,7 +176,7 @@ namespace Console_RPG
             }
             else if (choice == "INVENTORY")
             {
-                Inventory(Player.player); 
+                Location.Inventory(Player.player); 
             }
             else
             {
@@ -178,87 +199,10 @@ namespace Console_RPG
                 levelUpIncrease.maxHP = levelUpIncrease.maxHP + 5;
                 levelUpIncrease.maxMana = levelUpIncrease.maxMana + 5;
                 levelUpIncrease.strength = levelUpIncrease.strength + 5;
-                levelUpIncrease.defense = levelUpIncrease.defense + 5;
+                levelUpIncrease.defense = levelUpIncrease.defense + 0;
                 Console.WriteLine($"You leveled up!! Your level is now {this.level}. Keep on keeping on!\n");
 
 
-            }
-        }
-        public static void Inventory(Player player)
-        {
-            List<Entity> playerChoice = new List<Entity>() { player };
-            while (true)
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("What do you want to do?\n");
-                Console.WriteLine("USE ITEM || SWITCH EQUIP || STATS || LEAVE\n");
-                string choice = Console.ReadLine();
-                if (choice == "USE ITEM")
-                {
-                    if (Player.inventory.Count == 0)
-                    {
-                        Console.WriteLine("You've got nothing to use\n");
-                    }
-                    else
-                    {
-                        Item item = Player.player.ChooseItem(Player.inventory);
-                        Entity target = Player.player.ChooseTarget(playerChoice);
-                        item.Use(player, target);
-                        Player.inventory.Remove(item);
-                        break;
-                    }
-                }
-                else if (choice == "SWITCH EQUIP")
-                {
-                    if (Player.equipmentInventory.Count == 0)
-                    {
-                        Console.WriteLine("You've have no equipments.\n");
-                    }
-                    else
-                    {
-                        Equipment equipment = ChooseEquipment(Player.equipmentInventory);
-                        if (equipment.isEquipped == false)
-                        {
-                            equipment.Equip(Player.player);
-                            Console.WriteLine($"You have now equipped {equipment.name}\n");
-                        }
-                        else if (equipment.isEquipped == true)
-                        {
-                            equipment.UnEquip(Player.player);
-                            Console.WriteLine($"You have now unequipped {equipment.name}\n");
-                        }
-                    }
-                    break;
-                }
-                else if (choice == "STATS")
-                {
-                    Console.WriteLine("Here are your stats.\n");
-                    Console.WriteLine($"Max HP: {player.stats.maxHP}\n");
-                    Console.WriteLine($"Max Mana: {player.stats.maxMana}\n");
-                    Console.WriteLine($"Strength: {player.stats.strength} \n");
-                    Console.WriteLine($"Defense: {player.stats.defense} \n");
-                    Console.WriteLine($"Level: {player.level}\n");
-                    Console.WriteLine($"Exp: {player.currentExperience}\n");
-                    Console.WriteLine($"Doorknob Count: {player.doorKnobCount}\n");
-                    if (player.heldWeapon != null)
-                    {
-                        Console.WriteLine($"Equipped Weapon: {player.heldWeapon.name}\n");
-                    }
-                    if (player.equippedArmor != null)
-                    {
-                        Console.WriteLine($"Equipped Armor: {player.equippedArmor.name}\n");
-                    }
-
-                }
-                else if (choice == "LEAVE")
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("That's not an option try again!\n");
-                }
             }
         }
     }

@@ -6,24 +6,23 @@ namespace Console_RPG
 {
     class Ammo : Item
     {
-        int ammoRestored;
+        public static Ammo jerrysAllPurposeAmmo = new Ammo("Jerry's All Purpose Ammo", "For all your ammo filling needs", 250, 25, 32);
 
-        public Ammo(string name, string description, int shopPrice, int sellPrice, int maxAmount, int ammoRestored) : base(name, description, shopPrice, sellPrice, maxAmount)
-        {
-            this.ammoRestored = ammoRestored;   
+        public Ammo(string name, string description, int shopPrice, int sellPrice, int maxAmount) : base(name, description, shopPrice, sellPrice, maxAmount)
+        { 
         }
 
         public override void Use(Entity user, Entity target)
         {
-            Console.WriteLine($"This item will restore {ammoRestored} ammo to your held weapon.");
+            Console.WriteLine($"This item will restore all the ammo to your held weapon.");
             if (user.heldWeapon is RangedWeapon castedweapon)
             {
-                castedweapon.ammo += this.ammoRestored;
+                castedweapon.currentAmmo = castedweapon.maxAmmo;
                 Player.inventory.Remove(this);
             }
-            else if (user.heldWeapon is RangedWeapon castedweapon2)
+            else if (user.heldWeapon is SpecialWeapon castedweapon2 && castedweapon2.isRanged == true)
             {
-                castedweapon2.ammo += this.ammoRestored;
+                castedweapon2.currentAmmo += castedweapon2.maxAmmo;
                 Player.inventory.Remove(this);
             }
             else

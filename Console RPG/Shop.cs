@@ -307,23 +307,55 @@ namespace Console_RPG
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("What do you want to do?\n");
-                Console.WriteLine("USE ITEM || SWITCH EQUIP || STATS || LEAVE\n");
+                Console.WriteLine("ITEM || EQUIPMENT || STATS || LEAVE\n");
                 string choice = Console.ReadLine();
-                if (choice == "USE ITEM")
+                if (choice == "ITEM")
                 {
                     if (Player.inventory.Count == 0)
                     {
-                        Console.WriteLine("You've got nothing to use\n");
+                        Console.WriteLine("You have no items.\n");
                     }
                     else
                     {
-                        Item item = Player.player.ChooseItem(Player.inventory);
-                        Entity target = Player.player.ChooseTarget(playerChoice);
-                        item.Use(player, target);
-                        Player.inventory.Remove(item);
+                        while (true)
+                        {
+
+                            Console.WriteLine("What do you want to do, look at an item's DESCRIPTION || USE items or LEAVE.");
+                            string itemChoice = Console.ReadLine();
+                            if (itemChoice == "DESCRIPTION")
+                            {
+                                Item item = Player.player.ChooseItem(Player.inventory);
+                                Console.WriteLine($"Description: {item.description}\n");
+                                Console.WriteLine($"Sell Price: {item.sellPrice}\n");
+                                Console.WriteLine($"Max Amount: {item.maxAmount}\n");
+                                if (item is HealthPotionItem castedItem1)
+                                {
+                                    Console.WriteLine($"Healing Amount: {castedItem1.healAmount} \n");
+                                }
+                                else if (item is ManaPotionItem castedItem2)
+                                {
+                                    Console.WriteLine($"Healing Amount: {castedItem2.manaAmount} \n");
+                                }
+                            }
+                            else if (itemChoice == "USE")
+                            {
+                                Item item = Player.player.ChooseItem(Player.inventory);
+                                Entity target = Player.player.ChooseTarget(playerChoice);
+                                item.Use(player, target);
+                                Player.inventory.Remove(item);
+                            }
+                            else if (itemChoice == "LEAVE")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("You typed something wrong. Try again!");
+                            }
+                        }
                     }
                 }
-                else if (choice == "SWITCH EQUIP")
+                else if (choice == "EQUIPMENT")
                 {
                     if (Player.equipmentInventory.Count == 0)
                     {
@@ -331,16 +363,62 @@ namespace Console_RPG
                     }
                     else
                     {
-                        Equipment equipment = ChooseEquipmentEquip(Player.equipmentInventory);
-                        if (equipment.isEquipped == false)
+                        while (true)
                         {
-                            equipment.Equip(Player.player);
-                            Console.WriteLine($"You have now equipped {equipment.name}\n");
-                        }
-                        else if (equipment.isEquipped == true)
-                        {
-                            equipment.UnEquip(Player.player);
-                            Console.WriteLine($"You have now unequipped {equipment.name}\n");
+                            Console.WriteLine("What do you want to do, look at an equipment's DESCRIPTION || EQUIP equipments or LEAVE.");
+                            string equipmentChoice = Console.ReadLine();
+                            if (equipmentChoice == "DESCRIPTION")
+                            {
+                                Equipment equipment = Player.ChooseEquipmentDescribe(Player.equipmentInventory);
+                                Console.WriteLine($"Description: {equipment.description}\n");
+                                Console.WriteLine($"Sell Price: {equipment.sellPrice}\n");
+                                if (equipment is Weapon castedWeapon)
+                                {
+                                    Console.WriteLine($"Damage: {castedWeapon.damage}\n");
+                                    if (castedWeapon is ManaWeapon castedWeapon1)
+                                    {
+                                        Console.WriteLine($"Mana Cost: {castedWeapon1.manaUsed} \n");
+                                    }
+                                    else if (castedWeapon is RangedWeapon castedWeapon2)
+                                    {
+                                        Console.WriteLine($"Current Ammo:  {castedWeapon2.currentAmmo}\n");
+                                    }
+                                    else if (castedWeapon is SpecialWeapon castedWeapon3)
+                                    {
+                                        if (castedWeapon3.isMagic == true)
+                                            Console.WriteLine($"Mana Cost: {castedWeapon3.manaUsed}\n");
+                                        if (castedWeapon3.isRanged == true)
+                                            Console.WriteLine($"Current Ammo:  {castedWeapon3.currentAmmo}\n");
+                                    }
+                                }
+                                else if (equipment is Armor castedArmor)
+                                {
+                                    Console.WriteLine($"Defense Given: {castedArmor.defense}\n");
+                                }
+
+                            }
+                            else if (equipmentChoice == "EQUIP")
+                            {
+                                Equipment equipment = ChooseEquipmentEquip(Player.equipmentInventory);
+                                if (equipment.isEquipped == false)
+                                {
+                                    equipment.Equip(Player.player);
+                                    Console.WriteLine($"You have now equipped {equipment.name}\n");
+                                }
+                                else if (equipment.isEquipped == true)
+                                {
+                                    equipment.UnEquip(Player.player);
+                                    Console.WriteLine($"You have now unequipped {equipment.name}\n");
+                                }
+                            }
+                            else if (equipmentChoice == "LEAVE")
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("You typed something wrong. Try again!");
+                            }
                         }
                     }
                 }
