@@ -109,6 +109,11 @@ namespace Console_RPG
                 }
                 if (battleAgain == true)
                 {
+                    foreach (var enemy in enemies)
+                    {
+                        enemy.currentHP = enemy.stats.maxHP;
+                        enemy.currentMana = enemy.stats.maxMana;
+                    }
                     isResolved = false;
                 }
                 else if (battleAgain == false)

@@ -7,7 +7,7 @@ namespace Console_RPG
 {
     internal class Ending : LocationFeature
     {
-        public Ending(bool isResolved) : base(isResolved)
+        public Ending() : base(false)
         {
         }
 
