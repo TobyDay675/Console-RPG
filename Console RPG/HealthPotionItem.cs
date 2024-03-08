@@ -14,7 +14,14 @@
         }
         public override void Use(Entity user, Entity target)
         {
-            user.currentHP += this.healAmount;
+            if (this.healAmount < user.stats.maxHP)
+            {
+                user.currentHP += this.healAmount;
+            }
+            else if (this.healAmount > target.stats.maxHP) 
+            {
+                user.currentHP = user.stats.maxHP;
+            }
         }
     }
 }

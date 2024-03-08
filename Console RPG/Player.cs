@@ -113,6 +113,13 @@ namespace Console_RPG
             if (heldWeapon == null)
             {
                 Console.WriteLine("You have no weapon so you simply use your fists.\n");
+                if (target.stats.defense > this.stats.strength)
+                {
+                    target.currentHP -= 0;
+                    Console.WriteLine("You dealt no damage.");
+                }
+                else
+                {
                 int calculatedFistDamage = this.stats.strength - target.stats.defense;
                 target.currentHP -= calculatedFistDamage;
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -120,36 +127,54 @@ namespace Console_RPG
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
                 Console.ForegroundColor = ConsoleColor.White;
+                }
             }
             if (heldWeapon is ManaWeapon)
             {
-                heldWeapon.Use(user, target);
-                Console.ForegroundColor= ConsoleColor.Yellow; 
-                Console.WriteLine($"{this.name} magically zapped {target.name} for {heldWeapon.damage} damage!\n");
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
-                Console.WriteLine($"You now have {this.currentMana} mana left\n");
-                Console.ForegroundColor = ConsoleColor.White;
+                    heldWeapon.Use(user, target);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"{this.name} magically zapped {target.name} for {heldWeapon.damage} damage!\n");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
+                    Console.WriteLine($"You now have {this.currentMana} mana left\n");
+                    Console.ForegroundColor = ConsoleColor.White;
+                
             }
             if (heldWeapon is RangedWeapon)
             {
-                int calculatedDamage = (heldWeapon.damage + user.stats.strength) - target.stats.defense;
-                heldWeapon.Use(user, target);
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{this.name} shot {target.name} for {calculatedDamage + 10} damage!\n");
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
-                Console.ForegroundColor = ConsoleColor.White;
+                if (target.stats.defense > this.stats.strength + heldWeapon.damage)
+                {
+                    target.currentHP -= 0;
+                    Console.WriteLine("You dealt no damage.");
+                }
+                else
+                {
+                    int calculatedDamage = (heldWeapon.damage + user.stats.strength) - target.stats.defense;
+                    heldWeapon.Use(user, target);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"{this.name} shot {target.name} for {calculatedDamage + 10} damage!\n");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             }
             if (heldWeapon is MeleeWeapon)
             {
-                int calculatedDamage = (heldWeapon.damage + user.stats.strength) - target.stats.defense;
-                target.currentHP -= calculatedDamage;
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{this.name} attacked {target.name} for {calculatedDamage} damage!\n");
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
-                Console.ForegroundColor = ConsoleColor.White;
+                if (target.stats.defense > this.stats.strength + heldWeapon.damage)
+                {
+                    target.currentHP -= 0;
+                    Console.WriteLine("You dealt no damage.");
+                }
+                else
+                {
+                    int calculatedDamage = (heldWeapon.damage + user.stats.strength) - target.stats.defense;
+                    target.currentHP -= calculatedDamage;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"{this.name} attacked {target.name} for {calculatedDamage} damage!\n");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             }
             if (heldWeapon is SpecialWeapon)
             {

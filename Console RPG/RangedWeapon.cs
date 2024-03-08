@@ -26,7 +26,7 @@ namespace Console_RPG
                 return;
             }
             target.currentHP -= (this.damage + 10 + user.stats.strength) - target.stats.defense;
-            --currentAmmo;
+            currentAmmo -= maxAmmo / 8;
         }
     }
 }

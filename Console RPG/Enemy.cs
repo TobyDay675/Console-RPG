@@ -12,7 +12,7 @@ namespace Console_RPG
         // bosses
         public static BossEnemy doorkeeper = new BossEnemy("The DoorKeeper", hp: 100000, mana: 100000, new Stats(strength: 200, defense: 200, hp: 100000, mana: 100000), doorknobDropCount: 100000000, expDropCount: 50000000, maxMana: 1000, attackCost: 10000);
         public static BossEnemy mysteryNecromancer = new BossEnemy("Mysterious Necromancer", hp: 10000, mana: 1000, new Stats(strength: 5, defense: 5, hp: 10000, mana: 1000000), doorknobDropCount: 5500, expDropCount: 10000, maxMana: 500, attackCost: 250);
-        public static BossEnemy nopeDrill = new BossEnemy("Nope Drill", hp: 55000, mana: 1000, new Stats(strength: 1000, defense: 100, hp: 55000, mana: 1000), doorknobDropCount: 55000, expDropCount: 100000, maxMana: 400, attackCost: 500);
+        public static BossEnemy nopeDrill = new BossEnemy("Nope Drill", hp: 55000, mana: 1000, new Stats(strength: 150, defense: 100, hp: 55000, mana: 1000), doorknobDropCount: 55000, expDropCount: 100000, maxMana: 400, attackCost: 500);
         public static BossEnemy theSockPuppeter = new BossEnemy("The Sock Puppeter", hp: 10000, mana: 500, new Stats(strength: 60, defense: 10, hp: 1000, mana: 500), doorknobDropCount: 11000, expDropCount: 5000, maxMana: 300, attackCost: 100);
         public static BossEnemy chickenGaurdian = new BossEnemy("Chicken Guardian", hp: 1000, mana: 500, new Stats(strength: 100, defense: 10, hp: 1000, mana: 500), doorknobDropCount: 1000, expDropCount: 2000, maxMana: 200, attackCost: 250);
 
@@ -34,10 +34,10 @@ namespace Console_RPG
         public static NormalEnemy mimicE = new NormalEnemy("Mimic", hp: 150, mana: 0, new Stats(strength: 25, defense: 5, hp: 150, mana: 0), doorknobDropCount: 250, expDropCount: 50);
         public static NormalEnemy mimicF = new NormalEnemy("Mimic", hp: 150, mana: 0, new Stats(strength: 25, defense: 5, hp: 150, mana: 0), doorknobDropCount: 250, expDropCount: 50);
         public static NormalEnemy mimicG = new NormalEnemy("Mimic", hp: 150, mana: 0, new Stats(strength: 25, defense: 5, hp: 150, mana: 0), doorknobDropCount: 250, expDropCount: 50);
-        public static NormalEnemy mimicMinerA = new NormalEnemy("Mimic Miner", hp: 250, mana: 0, new Stats(strength: 20, defense: 5, hp: 250, mana: 0), doorknobDropCount: 450, expDropCount: 150);
-        public static NormalEnemy mimicMinerB = new NormalEnemy("Mimic Miner", hp: 250, mana: 0, new Stats(strength: 20, defense: 5, hp: 250, mana: 0), doorknobDropCount: 450, expDropCount: 150);
-        public static NormalEnemy mimicMinerC = new NormalEnemy("Mimic Miner", hp: 250, mana: 0, new Stats(strength: 20, defense: 5, hp: 250, mana: 0), doorknobDropCount: 450, expDropCount: 150);
-        public static NormalEnemy mimicMinerD = new NormalEnemy("Mimic Miner", hp: 250, mana: 0, new Stats(strength: 20, defense: 5, hp: 250, mana: 0), doorknobDropCount: 450, expDropCount: 150);
+        public static NormalEnemy mimicMinerA = new NormalEnemy("Mimic Miner", hp: 250, mana: 0, new Stats(strength: 30, defense: 5, hp: 250, mana: 0), doorknobDropCount: 450, expDropCount: 150);
+        public static NormalEnemy mimicMinerB = new NormalEnemy("Mimic Miner", hp: 250, mana: 0, new Stats(strength: 30, defense: 5, hp: 250, mana: 0), doorknobDropCount: 450, expDropCount: 150);
+        public static NormalEnemy mimicMinerC = new NormalEnemy("Mimic Miner", hp: 250, mana: 0, new Stats(strength: 30, defense: 5, hp: 250, mana: 0), doorknobDropCount: 450, expDropCount: 150);
+        public static NormalEnemy mimicMinerD = new NormalEnemy("Mimic Miner", hp: 250, mana: 0, new Stats(strength: 30, defense: 5, hp: 250, mana: 0), doorknobDropCount: 450, expDropCount: 150);
         public static NormalEnemy minerA = new NormalEnemy("Miner", hp: 500, mana: 0, new Stats(strength: 28, defense: 10, hp: 500, mana: 0), doorknobDropCount: 250, expDropCount: 400);
         public static NormalEnemy minerB = new NormalEnemy("Miner", hp: 500, mana: 0, new Stats(strength: 28, defense: 10, hp: 500, mana: 0), doorknobDropCount: 250, expDropCount: 400);
         public static NormalEnemy minerC = new NormalEnemy("Miner", hp: 500, mana: 0, new Stats(strength: 28, defense: 10, hp: 500, mana: 0), doorknobDropCount: 250, expDropCount: 400);
@@ -59,7 +59,7 @@ namespace Console_RPG
         public static MagicEnemy cavernMasterB = new MagicEnemy("Cavern Master", hp: 1500, mana: 150, new Stats(strength: 5, defense: 20, hp: 1500, mana: 150), doorknobDropCount: 1000, expDropCount: 2000, maxMana: 148, attackCost: 25);
         public static NormalEnemy demagargenA = new NormalEnemy("Demagargen", hp: 2000, mana: 0, new Stats(strength: 40, defense: 25, hp: 2000, mana: 0), doorknobDropCount: 1500, expDropCount: 2500);
         public static NormalEnemy demagargenB = new NormalEnemy("Demagargen", hp: 2000, mana: 0, new Stats(strength: 40, defense: 25, hp: 2000, mana: 0), doorknobDropCount: 1500, expDropCount: 2500);
-        public static NormalEnemy rocksA  = new NormalEnemy("Rocks", hp: 4000, mana: 0, new Stats(strength: 10, defense: 1000, hp: 4000, mana: 0), doorknobDropCount: 10000, expDropCount: 200);
+        public static NormalEnemy rocksA = new NormalEnemy("Rocks", hp: 4000, mana: 0, new Stats(strength: 10, defense: 1000, hp: 4000, mana: 0), doorknobDropCount: 10000, expDropCount: 200);
         public static NormalEnemy rocksB = new NormalEnemy("Rocks", hp: 4000, mana: 0, new Stats(strength: 10, defense: 1000, hp: 4000, mana: 0), doorknobDropCount: 10000, expDropCount: 200);
         public static NormalEnemy starNosedPoleA = new NormalEnemy("Star Nosed Pole", hp: 5000, mana: 0, new Stats(strength: 45, defense: 30, hp: 5000, mana: 0), doorknobDropCount: 5000, expDropCount: 2000);
         public static NormalEnemy starNosedPoleB = new NormalEnemy("Star Nosed Pole", hp: 5000, mana: 0, new Stats(strength: 45, defense: 30, hp: 5000, mana: 0), doorknobDropCount: 5000, expDropCount: 2000);
@@ -69,24 +69,24 @@ namespace Console_RPG
         public static NormalEnemy sentientPickB = new NormalEnemy("Sentient Pick", hp: 8000, mana: 0, new Stats(strength: 60, defense: 20, hp: 8000, mana: 0), doorknobDropCount: 6000, expDropCount: 3000);
 
         //Bubble Arena Enemies
-        public static BossEnemy arenaChampion = new BossEnemy("The Champion", hp: 10000, mana: 1000, new Stats(strength: 55, defense: 15, hp: 10000, mana: 1000), doorknobDropCount: 10000, expDropCount: 2500, maxMana: 248, attackCost: 500);
-        public static NormalEnemy bubbleBehemoth = new NormalEnemy("Bubble Behemoth", hp: 5000, mana: 10, new Stats(strength: 30, defense: 5, hp: 5000, mana: 10), doorknobDropCount: 2500, expDropCount: 500);
-        public static MagicEnemy bubbleSorcerer = new MagicEnemy("Bubble Sorcerer", hp: 250, mana: 100, new Stats(strength: 2, defense: 2, hp: 600, mana: 100), doorknobDropCount: 1000, expDropCount: 250, maxMana: 100, attackCost: 25);
+        public static BossEnemy arenaChampion = new BossEnemy("The Champion", hp: 10000, mana: 1000, new Stats(strength: 55, defense: 55, hp: 10000, mana: 1000), doorknobDropCount: 10000, expDropCount: 2500, maxMana: 248, attackCost: 500);
+        public static NormalEnemy bubbleBehemoth = new NormalEnemy("Bubble Behemoth", hp: 5000, mana: 10, new Stats(strength: 35, defense: 5, hp: 5000, mana: 10), doorknobDropCount: 2500, expDropCount: 500);
+        public static MagicEnemy bubbleSorcerer = new MagicEnemy("Bubble Sorcerer", hp: 250, mana: 100, new Stats(strength: 2, defense: 20, hp: 600, mana: 100), doorknobDropCount: 1000, expDropCount: 250, maxMana: 150, attackCost: 25);
         public static NormalEnemy summonedBubbleA = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
         public static NormalEnemy summonedBubbleB = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
         public static NormalEnemy summonedBubbleC = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
         public static NormalEnemy summonedBubbleD = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
         public static NormalEnemy summonedBubbleE = new NormalEnemy("Summoned Bubble", hp: 10, mana: 0, new Stats(strength: 5, defense: 0, hp: 10, mana: 100), doorknobDropCount: 10, expDropCount: 25);
-        public static NormalEnemy theDirtyBubble = new NormalEnemy("The Dirty Bubble", hp: 500, mana: 10, new Stats(strength: 18, defense: 0, hp: 500, mana: 10), doorknobDropCount: 100, expDropCount: 200);
-        public static NormalEnemy bubbleGladiatorA = new NormalEnemy("Bubble Gladiator", hp: 150, mana: 10, new Stats(strength: 15, defense: 0, hp: 150, mana: 10), doorknobDropCount: 100, expDropCount: 150);
-        public static NormalEnemy bubbleGladiatorB = new NormalEnemy("Bubble Gladiator", hp: 150, mana: 10, new Stats(strength: 15, defense: 0, hp: 150, mana: 10), doorknobDropCount: 100, expDropCount: 150);
-        public static NormalEnemy bubbleGladiatorC = new NormalEnemy("Bubble Gladiator", hp: 150, mana: 10, new Stats(strength: 15, defense: 0, hp: 150, mana: 10), doorknobDropCount: 100, expDropCount: 150);
-        public static NormalEnemy bubbleGladiatorD = new NormalEnemy("Bubble Gladiator", hp: 150, mana: 10, new Stats(strength: 15, defense: 0, hp: 150, mana: 10), doorknobDropCount: 100, expDropCount: 150);
-        public static NormalEnemy armoredBubbleA = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 8, defense: 5, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
-        public static NormalEnemy armoredBubbleB = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 8, defense: 5, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
-        public static NormalEnemy armoredBubbleC = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 8, defense: 5, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
-        public static NormalEnemy armoredBubbleD = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 8, defense: 5, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
-        public static NormalEnemy armoredBubbleE = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 8, defense: 5, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
+        public static NormalEnemy theDirtyBubble = new NormalEnemy("The Dirty Bubble", hp: 500, mana: 10, new Stats(strength: 30, defense: 0, hp: 500, mana: 10), doorknobDropCount: 100, expDropCount: 200);
+        public static NormalEnemy bubbleGladiatorA = new NormalEnemy("Bubble Gladiator", hp: 175, mana: 10, new Stats(strength: 25, defense: 0, hp: 150, mana: 10), doorknobDropCount: 100, expDropCount: 150);
+        public static NormalEnemy bubbleGladiatorB = new NormalEnemy("Bubble Gladiator", hp: 175, mana: 10, new Stats(strength: 25, defense: 0, hp: 150, mana: 10), doorknobDropCount: 100, expDropCount: 150);
+        public static NormalEnemy bubbleGladiatorC = new NormalEnemy("Bubble Gladiator", hp: 175, mana: 10, new Stats(strength: 25, defense: 0, hp: 150, mana: 10), doorknobDropCount: 100, expDropCount: 150);
+        public static NormalEnemy bubbleGladiatorD = new NormalEnemy("Bubble Gladiator", hp: 175, mana: 10, new Stats(strength: 25, defense: 0, hp: 150, mana: 10), doorknobDropCount: 100, expDropCount: 150);
+        public static NormalEnemy armoredBubbleA = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 15, defense: 25, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
+        public static NormalEnemy armoredBubbleB = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 15, defense: 25, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
+        public static NormalEnemy armoredBubbleC = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 15, defense: 25, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
+        public static NormalEnemy armoredBubbleD = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 15, defense: 25, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
+        public static NormalEnemy armoredBubbleE = new NormalEnemy("Armored Bubble", hp: 150, mana: 10, new Stats(strength: 15, defense: 25, hp: 150, mana: 10), doorknobDropCount: 75, expDropCount: 100);
         public static NormalEnemy bubbleArcherA = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 50, expDropCount: 50);
         public static NormalEnemy bubbleArcherB = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 50, expDropCount: 50);
         public static NormalEnemy bubbleArcherC = new NormalEnemy("Bubble Archer", hp: 45, mana: 10, new Stats(strength: 5, defense: 0, hp: 50, mana: 10), doorknobDropCount: 50, expDropCount: 50);
@@ -116,7 +116,7 @@ namespace Console_RPG
 
         public override void Attack(Entity target, Entity user)
         {
-        
+
         }
 
         public override void DoTurn(List<Player> players, List<Enemy> enemies)
@@ -140,8 +140,15 @@ namespace Console_RPG
         {
             if (this.currentHP > 0)
             {
-                int calculatedDamage = this.stats.strength - target.stats.defense;
-                target.currentHP -= calculatedDamage;
+                if (target.stats.defense < this.stats.strength)
+                {
+                    int calculatedDamage = this.stats.strength - target.stats.defense;
+                    target.currentHP -= calculatedDamage;
+                }
+                if (target.stats.defense > this.stats.strength)
+                {
+                    target.currentHP -= 0;
+                }
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Your hp is now: {target.currentHP}\n");
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -151,7 +158,7 @@ namespace Console_RPG
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("This enemy is dead you should attack the other ones now!\n");
             }
-            
+
         }
 
         public override void DoTurn(List<Player> players, List<Enemy> enemies)
@@ -178,7 +185,7 @@ namespace Console_RPG
         public override void Attack(Entity target, Entity user)
         {
             if (this.currentHP > 0)
-            { 
+            {
                 if (this.currentMana > 0)
                 {
                     this.currentMana -= attackCost;
@@ -234,8 +241,15 @@ namespace Console_RPG
                 if (attackType < 4 || this.currentMana == 0)
                 {
                     Console.WriteLine($"ITS A MELEE ATTACK!!!!\n");
-                    int calculatedMeleeDamage = this.stats.strength - target.stats.defense;
-                    target.currentHP -= calculatedMeleeDamage;
+                    if (target.stats.defense < this.stats.strength)
+                    {
+                        int calculatedMeleeDamage = this.stats.strength - target.stats.defense;
+                        target.currentHP -= calculatedMeleeDamage;
+                    }
+                    if (target.stats.defense > this.stats.strength)
+                    {
+                        target.currentHP -= 0;
+                    }
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Your hp is now: {target.currentHP}\n");
                     Console.ForegroundColor = ConsoleColor.Cyan;

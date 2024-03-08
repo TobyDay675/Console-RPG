@@ -6,7 +6,7 @@ namespace Console_RPG
 {
     class Armor : Equipment
     {
-        public static Armor bubbleArmor = new Armor("Bubble Armor", "Suprisingly good armor", 100, 50, 1, 10);
+        public static Armor bubbleArmor = new Armor("Bubble Armor", "Suprisingly good armor", 100, 50, 1, 15);
         public static Armor ironArmor = new Armor("Iron Armor", "Steel of a deal", 2500, 50, 1, 25);
         public static Armor chickenSuit = new Armor("Chicken Suit", "You are now the chicken god", 2500, 50000, 1, 50);
         public static Armor nopePowerSuit = new Armor("Nope Power Suit", "You are ready to wreak havoc", shopPrice: 0, sellPrice: 100000, maxAmount: 1, defense: 100);
@@ -38,6 +38,5 @@ namespace Console_RPG
         public override void Use(Entity user, Entity target)
         { 
         }
-
     }
 }

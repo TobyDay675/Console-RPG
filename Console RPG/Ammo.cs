@@ -6,7 +6,7 @@ namespace Console_RPG
 {
     class Ammo : Item
     {
-        public static Ammo jerrysAllPurposeAmmo = new Ammo("Jerry's All Purpose Ammo", "For all your ammo filling needs", 250, 25, 32);
+        public static Ammo jerrysAllPurposeAmmo = new Ammo("Jerry's All Purpose Ammo", "For all your ammo filling needs", 50, 25, 32);
 
         public Ammo(string name, string description, int shopPrice, int sellPrice, int maxAmount) : base(name, description, shopPrice, sellPrice, maxAmount)
         { 

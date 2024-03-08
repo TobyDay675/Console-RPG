@@ -456,4 +456,3 @@ namespace Console_RPG
         }
     }        
  }
-

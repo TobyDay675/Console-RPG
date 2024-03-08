@@ -87,7 +87,7 @@ namespace Console_RPG
                     if (attackOption == "2" || this.currentAmmo > 0)
                     {
                         target.currentHP -= (this.damage + 10 + user.stats.strength) - target.stats.defense;
-                        --currentAmmo;
+                        currentAmmo -= maxAmmo / 8;
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine($"{this.name} attacked {target.name} for {calculatedDamage + 10} damage!\n");
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -123,7 +123,7 @@ namespace Console_RPG
                     if (attackOption == "2" || this.currentAmmo > 0)
                     {
                         target.currentHP -= (this.damage + 10 + user.stats.strength) - target.stats.defense;
-                        --currentAmmo;
+                        currentAmmo -= maxAmmo / 8;
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine($"{this.name} attacked {target.name} for {calculatedDamage + 10} damage!\n");
                         Console.ForegroundColor = ConsoleColor.DarkYellow;

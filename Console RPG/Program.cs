@@ -37,7 +37,7 @@ namespace Console_RPG
             Location.randomRoom4.SetNearbyLocations(east: Location.theFinalDoor, west: Location.necromancyRoom);
             Location.necromancyRoom.SetNearbyLocations(north: Location.necromancyLootRoom);
             Location.theFinalDoor.SetNearbyLocations(east: Location.FinalBattleRoom);
-            Location.FinalBattleRoom.SetNearbyLocations(east: Location.exit);
+            Location.FinalBattleRoom.east = Location.exit;
 
             Player.player.heldWeapon = null;
             Location.exitPortal.north = Location.bubbleLand;
@@ -70,10 +70,8 @@ namespace Console_RPG
             Location.theArenaFloor9.south = Location.exitPortal;
             
             Location.theArenaFloor10.south = Location.exitPortal;
-            Location.DoorRoom();
-
-            
-            
+            Location.exit.Resolve(new List<Player>() { Player.player});
+            //Location.DoorRoom();
         }
     }
 }
