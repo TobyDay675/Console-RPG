@@ -14,7 +14,10 @@ namespace Console_RPG
 
         public override void Equip(Entity user)
         {
-            user.heldWeapon.UnEquip(user);
+            if (user.heldWeapon != null)
+            {
+                user.heldWeapon.UnEquip(user);
+            }
             user.heldWeapon = this;
             this.isEquipped = true;
             

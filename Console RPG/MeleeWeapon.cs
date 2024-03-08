@@ -4,7 +4,7 @@ namespace Console_RPG
 {
     class MeleeWeapon : Weapon
     {
-        public static MeleeWeapon dagger = new MeleeWeapon("Dagger", "Stabby stabby", shopPrice: 10, sellPrice: 5, 1, 50);
+        public static MeleeWeapon dagger = new MeleeWeapon("Dagger", "Stabby stabby", shopPrice: 10, sellPrice: 5, 1, 25);
         public static MeleeWeapon theSword = new MeleeWeapon("The Sword", "You haven't heard about The Sword?", shopPrice: 100, sellPrice: 50, maxAmount: 1, damage: 100);
         public static MeleeWeapon bubblePopper = new MeleeWeapon("Bubble Popper", "Quickly pop dem bubbles", shopPrice: 600, sellPrice: 300, maxAmount: 1, damage: 200);
         public static MeleeWeapon shovel = new MeleeWeapon("Shovel", "We do be digging", shopPrice: 250, sellPrice: 125, maxAmount: 1, damage: 150);

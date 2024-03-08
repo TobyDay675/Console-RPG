@@ -39,9 +39,6 @@ namespace Console_RPG
                 Console.WriteLine("You can't use this item... try attacking with it!\n");
                 return;
             }
-            
         }
     }
-
-
 }

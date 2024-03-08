@@ -14,6 +14,38 @@ namespace Console_RPG
         public static Location exitPortal = new Location("Exit Portal", "Get outtaaa here. \n");
         //Cavern of Doors
         public static Location cavernOfDoors = new Location("Cavern Of Doors", "I swear if I see one more door. \n");
+        public static Location randomRoom1 = new Location("Yellow Door", "Sunflowerrs.\n");
+        public static Location randomRoom2 = new Location("Pink Door", "Hearts and Valentines blehhhhh.\n");
+        public static Location randomRoom3 = new Location("Black Door", "It's pitch black in here!!\n");
+        public static Location randomRoom4 = new Location("Orange Door", "Orange you glad it wasn't the banana door.\n");
+        public static Location randomRoom5 = new Location("Banana Door", "This is crazy.\n");
+        public static Location spiderRoom = new Location("Web Door", "AHHH SPIDERS!!!!!\n");
+        public static Location spiderRoom2 = new Location("Glass Door", "Ok though they are kind of cute.\n");
+        public static Location chickenFightRoom = new Location("Chicken Door", "You defeated the great Chicken Guardian.\n");
+        public static Location chickenRewardRoom = new Location("Chicken Treasure Room", "Bawk Bawk.\n");
+        public static Location mimicRoom1 = new Location("Wooden Door", "I thought it was a normal chest.\n");
+        public static Location mimicRoom2 = new Location("Steel Door", "The more the merrier I guess.\n");
+        public static Location mimicRoom3 = new Location("Coal Door", "How does a chest mine?\n");
+        public static Location mimicRoom4 = new Location("Gold Door", "SO MUCH MONEYYY!!! \n");
+        public static Location spookyRoom1 = new Location("Ghost Door", "I'm shivering in my timbers.\n");
+        public static Location spookyRoom2 = new Location("Astral Door", "I do believe in spooks I do I do.\n");
+        public static Location spookyRoom3 = new Location("Blood Door", "How does one weld with a scythe?\n");
+        public static Location mineRoom1 = new Location("Ore Door", "Mininnnng awaaaay.\n");
+        public static Location mineRoom2 = new Location("Pickaxe Door", "I wonder what they are mining for.\n");
+        public static Location mineRoom3 = new Location("Minecart Door", "HOW IS THAT PICKAXE ALIVE.\n");
+        public static Location quarryRoom = new Location("Water Door", "You really spent all that time fighting rocks... wow\n");
+        public static Location starNosedPoleTunnel1 = new Location("Barber Door", "The Star-Nosed-Pole is near.\n");
+        public static Location starNosedPoleTunnel2 = new Location("Tunnel", "The elusive Star-Nosed-Pole is dead.\n");
+        public static Location cavernMasterRoom = new Location("Fancy Door", "He has been here for centuries.\n");
+        public static Location demagargenRoom = new Location("Strange Door", "There have been stranger things seen.\n");
+        public static Location necromancyRoom = new Location("Life and Love Door", "You felled the great Necromancer!!\n");
+        public static Location necromancyLootRoom = new Location("Necromancers Loot Chest", "You can now steal his shtufff.\n");
+        public static Location sockPuppetRoom = new Location("Cloth Door", "That ends this puppet show.\n");
+        public static Location sockPuppetLootRoom = new Location("Behind The Curtain", "Oooooooo some a free sock puppet.\n");
+        public static Location wizardShop = new Location("Purple Door", "This is one magical place.\n");
+        public static Location theFinalDoor = new Location("The Final Door", "One last door to open. \n", unlockedByDefault: false);
+        public static Location FinalBattleRoom = new Location("Final Room", "You defeated the door master now you can leave this prison.\n");
+        public static Location exit = new Location("Exit", "Finally Escape.\n");
         //ARENA
         public static Location theArena = new Location("THE BUBBLE ARENA!!!", "Fight...FiGhT...FIGHTTTTT!!!! \n", isCheckpoint: true);
         public static Location theArenaFloor1 = new Location("Floor 1", "Its a battling time. \n", new Battle(new List<Enemy>() { Enemy.bubbleFighterA, Enemy.bubbleFighterB, Enemy.bubbleArcherA}), true);
@@ -21,16 +53,14 @@ namespace Console_RPG
         public static Location theArenaFloor3 = new Location("Floor 3", "Don't slip. \n", new Battle(new List<Enemy>() { Enemy.armoredBubbleE, Enemy.bubbleArcherF, Enemy.bubbleFighterE }), true);
         public static Location theArenaFloor4 = new Location("Floor 4", "How do bubbles wear armor anyway. \n", new Battle(new List<Enemy>() { Enemy.armoredBubbleA, Enemy.armoredBubbleB }), true);
         public static Location theArenaFloor5 = new Location("Floor 5", "These are some touch bubbles? Are they made with glycerin. \n", new Battle(new List<Enemy>() { Enemy.armoredBubbleC, Enemy.bubbleGladiatorA, Enemy.armoredBubbleD }), true);
-        public static Location theArenaFloor6 = new Location("Floor 6", "This is... not sparta. \n", new Battle(new List<Enemy>() { Enemy.bubbleGladiatorB, Enemy.bubbleGladiatorC, Enemy.bubbleGladiatorD }), true);
+        public static Location theArenaFloor6 = new Location("Floor 6", "This is... not Sparta. \n", new Battle(new List<Enemy>() { Enemy.bubbleGladiatorB, Enemy.bubbleGladiatorC, Enemy.bubbleGladiatorD }), true);
         public static Location theArenaFloor7 = new Location("Floor 7", "We might get copyrighted for this one. \n", new Battle(new List<Enemy>() { Enemy.theDirtyBubble}), true);
         public static Location theArenaFloor8 = new Location("Floor 8", "The Champion is near. \n", new Battle(new List<Enemy>() { Enemy.bubbleSorcerer, Enemy.summonedBubbleA, Enemy.summonedBubbleB, Enemy.summonedBubbleC, Enemy.summonedBubbleD, Enemy.summonedBubbleE }), true);
         public static Location theArenaFloor9 = new Location("Floor 9", "The Champion is waiting. \n", new Battle(new List<Enemy>() { Enemy.bubbleBehemoth, Enemy.bubbleFighterC, Enemy.bubbleFighterD}), true);
         public static Location theArenaFloor10 = new Location("Floor 10: Champion's Room", "You are now the champion. \n", new Battle(new List<Enemy>() { Enemy.arenaChampion }), true);
         
         //Locked forever for now
-        public static Location doorCultLair = new Location("Lair of the Door Cult", "ALL HAIL THE HINDGES FROM ABOVE. \n", unlockedByDefault: false);
         public static Location nopeHQ = new Location("Nope Squad HQ", "Nope. \n", unlockedByDefault: false);
-        public static Location theFinalDoor = new Location("The Final Door", "One last door to open. \n", unlockedByDefault: false);
         public static Location narratorRoom = new Location("???", "How did you get here? \n", unlockedByDefault: false);
 
         public string name;
@@ -293,7 +323,7 @@ namespace Console_RPG
                         else if (equipment.isEquipped == true)
                         {
                             equipment.UnEquip(Player.player);
-                            Console.WriteLine($"You have now unequpped {equipment.name}\n");
+                            Console.WriteLine($"You have now unequipped {equipment.name}\n");
                         }
                     }
                 }

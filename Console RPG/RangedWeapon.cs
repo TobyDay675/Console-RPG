@@ -21,7 +21,6 @@ namespace Console_RPG
                 Console.WriteLine("You are out of ammo, your turn is skipped.\n");
                 return;
             }
-
             target.currentHP -= (this.damage + 10 + user.stats.strength) - target.stats.defense;
             --ammo;
         }

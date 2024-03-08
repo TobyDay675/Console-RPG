@@ -11,7 +11,7 @@ namespace Console_RPG
         public static List<Equipment> equipmentInventory = new List<Equipment>() { };
         public int levelUpCeiling = 100; 
 
-        public static Player player = new Player("Player", hp: 50, mana: 25, new Stats(strength: 15, defense: 0, hp: 50, mana: 25), level: 1, exp: 0, doorknob: 1000);
+        public static Player player = new Player("Player", hp: 50, mana: 25, new Stats(strength: 15, defense: 0, hp: 50, mana: 25), level: 1, exp: 0, doorknob: 35);
         
         public int level; 
         public int currentExperience;
@@ -35,7 +35,6 @@ namespace Console_RPG
                 Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.WriteLine($"{i + 1}: {choices[i].name}");
             }
-
             try
             {
                 int index = Convert.ToInt32(Console.ReadLine());
@@ -105,7 +104,7 @@ namespace Console_RPG
             {
                 heldWeapon.Use(user, target);
                 Console.ForegroundColor= ConsoleColor.Yellow; 
-                Console.WriteLine($"{this.name} attacked {target.name} for {heldWeapon.damage} damage!\n");
+                Console.WriteLine($"{this.name} magically zapped {target.name} for {heldWeapon.damage} damage!\n");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
                 Console.WriteLine($"You now have {this.currentMana} mana left\n");
@@ -116,7 +115,7 @@ namespace Console_RPG
                 int calculatedDamage = (heldWeapon.damage + user.stats.strength) - target.stats.defense;
                 heldWeapon.Use(user, target);
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"{this.name} attacked {target.name} for {calculatedDamage + 10} damage!\n");
+                Console.WriteLine($"{this.name} shot {target.name} for {calculatedDamage + 10} damage!\n");
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine($"{target.name}'s hp is now: {target.currentHP}\n");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -226,7 +225,7 @@ namespace Console_RPG
                         else if (equipment.isEquipped == true)
                         {
                             equipment.UnEquip(Player.player);
-                            Console.WriteLine($"You have now unequpped {equipment.name}\n");
+                            Console.WriteLine($"You have now unequipped {equipment.name}\n");
                         }
                     }
                     break;
@@ -245,7 +244,6 @@ namespace Console_RPG
                     {
                         Console.WriteLine($"Equipped Weapon: {player.heldWeapon.name}\n");
                     }
-
                     if (player.equippedArmor != null)
                     {
                         Console.WriteLine($"Equipped Armor: {player.equippedArmor.name}\n");
@@ -263,8 +261,5 @@ namespace Console_RPG
                 }
             }
         }
-
     }
-
-
 }

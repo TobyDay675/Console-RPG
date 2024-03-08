@@ -35,7 +35,10 @@ namespace Console_RPG
                     string buyChoice = Console.ReadLine();
                     if (buyChoice == "ITEMS")
                     {
-                        Item item = ChooseItem(this.items);
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine($"You have {Player.player.doorKnobCount} doorknobs\n");
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        Item item = ChooseItemBuy(this.items);
                         if (Player.player.doorKnobCount >= item.shopPrice)
                         {
                             Player.player.doorKnobCount -= item.shopPrice;
@@ -50,7 +53,10 @@ namespace Console_RPG
                     }
                     if (buyChoice == "EQUIPMENTS")
                     {
-                        Equipment equipment = ChooseEquipment(this.equipments);
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine($"You have {Player.player.doorKnobCount} doorknobs\n");
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        Equipment equipment = ChooseEquipmentBuy(this.equipments);
                         if (Player.player.doorKnobCount >= equipment.shopPrice)
                         {
                             Player.player.doorKnobCount -= equipment.shopPrice;
@@ -72,14 +78,14 @@ namespace Console_RPG
                     string sellChoice = Console.ReadLine();
                     if (sellChoice == "ITEMS")
                     {
-                        Item item = ChooseItem(Player.inventory);
+                        Item item = ChooseItemSell(Player.inventory);
                         Player.player.doorKnobCount += item.sellPrice;
                         Player.inventory.Remove(item);
                         Console.WriteLine($"You just sold a {item.name}! I hope you don't regret that.\n");
                     }
                     if (sellChoice == "EQUIPMENTS")
                     {
-                        Item equipment = ChooseEquipment(Player.equipmentInventory);
+                        Item equipment = ChooseEquipmentSell(Player.equipmentInventory);
                         Player.player.doorKnobCount += equipment.sellPrice;
                         Player.inventory.Remove(equipment);
                         Console.WriteLine($"You just sold a {equipment.name}! I hope you don't regret that.\n");
@@ -97,14 +103,14 @@ namespace Console_RPG
                             string stealOption = Console.ReadLine();
                             if (stealOption == "ITEM")
                             {
-                                Item item = ChooseItem(this.items);
+                                Item item = ChooseItemSteal(this.items);
                                 Player.inventory.Add(item);
                                 this.items.Remove(item);
                                 Console.WriteLine($"You just stole a {item.name}! You are a horrible person.\n");
                             }
                             if (stealOption == "EQUIPMENT")
                             {
-                                Equipment equipment = ChooseEquipment(this.equipments);
+                                Equipment equipment = ChooseEquipmentSteal(this.equipments);
                                 Player.inventory.Add(equipment);
                                 this.items.Remove(equipment);
                                 Console.WriteLine($"You just stole a {equipment.name}! You are a horrible person.\n");
@@ -122,7 +128,7 @@ namespace Console_RPG
                     else if (this.items.Count == 0 && this.equipments.Count == 0)
                     {
                         Console.ForegroundColor= ConsoleColor.Red;
-                        Console.WriteLine("You stole everything from the shop with out the shopkeeper realising.\n");
+                        Console.WriteLine("You stole everything from the shop with out the shopkeeper realizing.\n");
                         Console.WriteLine("What an idiot... anyway there is no point to going back here so I'll just close it up.\n");
                         this.isResolved = true;
                         Console.ForegroundColor = ConsoleColor.Cyan;
@@ -133,7 +139,7 @@ namespace Console_RPG
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine($"You have {Player.player.doorKnobCount} doorknobs\n");
-                    Console.WriteLine($"Go buy something\n");
+                    Console.WriteLine($"Go buy something!\n");
                     Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 }
                 else if (choice == "INVENTORY")
@@ -154,16 +160,15 @@ namespace Console_RPG
             Console.ForegroundColor = ConsoleColor.Cyan;
             
         }
-        public Item ChooseItem(List<Item> choices)
+        public Item ChooseItemBuy(List<Item> choices)
         {
-            Console.WriteLine("Type in the number of the item you want to buy/sell/steal:\n");
+            Console.WriteLine("Type in the number of the item you want to BUY:\n");
             for (int i = 0; i < choices.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.WriteLine($"{i + 1}: {choices[i].name} ({choices[i].shopPrice} doorknobs)\n");
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
             }
-
             try
             {
                 int index = Convert.ToInt32(Console.ReadLine());
@@ -171,21 +176,20 @@ namespace Console_RPG
             }
             catch (Exception ex)
             {
-                return ChooseItem(choices);
+                return ChooseItemBuy(choices);
             }
 
         }
-        public static Equipment ChooseEquipment(List<Equipment> choices)
+        public static Equipment ChooseEquipmentBuy(List<Equipment> choices)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Type in the number of the item you want to buy/sell/steal:\n");
+            Console.WriteLine("Type in the number of the item you want to BUY:\n");
             for (int i = 0; i < choices.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.WriteLine($"{i + 1}: {choices[i].name} ({choices[i].shopPrice} doorknobs)");
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
             }
-
             try
             {
                 int index = Convert.ToInt32(Console.ReadLine());
@@ -193,7 +197,107 @@ namespace Console_RPG
             }
             catch (Exception ex)
             {
-                return ChooseEquipment(choices);
+                return ChooseEquipmentBuy(choices);
+            }
+        }
+        public Item ChooseItemSell(List<Item> choices)
+        {
+            Console.WriteLine("Type in the number of the item you want to SELL:\n");
+            for (int i = 0; i < choices.Count; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($"{i + 1}: {choices[i].name} ({choices[i].sellPrice} doorknobs)\n");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            }
+            try
+            {
+                int index = Convert.ToInt32(Console.ReadLine());
+                return choices[index - 1];
+            }
+            catch (Exception ex)
+            {
+                return ChooseItemSell(choices);
+            }
+
+        }
+        public static Equipment ChooseEquipmentSell(List<Equipment> choices)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Type in the number of the item you want to SELL:\n");
+            for (int i = 0; i < choices.Count; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($"{i + 1}: {choices[i].name} ({choices[i].sellPrice} doorknobs)");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            }
+            try
+            {
+                int index = Convert.ToInt32(Console.ReadLine());
+                return choices[index - 1];
+            }
+            catch (Exception ex)
+            {
+                return ChooseEquipmentSell(choices);
+            }
+        }
+        public Item ChooseItemSteal(List<Item> choices)
+        {
+            Console.WriteLine("Type in the number of the item you want to STEAl:\n");
+            for (int i = 0; i < choices.Count; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($"{i + 1}: {choices[i].name}\n");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            }
+            try
+            {
+                int index = Convert.ToInt32(Console.ReadLine());
+                return choices[index - 1];
+            }
+            catch (Exception ex)
+            {
+                return ChooseItemSteal(choices);
+            }
+
+        }
+        public static Equipment ChooseEquipmentSteal(List<Equipment> choices)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Type in the number of the item you want to STEAL:\n");
+            for (int i = 0; i < choices.Count; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($"{i + 1}: {choices[i].name}\n");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            }
+            try
+            {
+                int index = Convert.ToInt32(Console.ReadLine());
+                return choices[index - 1];
+            }
+            catch (Exception ex)
+            {
+                return ChooseEquipmentSteal(choices);
+            }
+        }
+        public static Equipment ChooseEquipmentEquip(List<Equipment> choices)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Type in the number of the item you want to EQUIP:\n");
+            for (int i = 0; i < choices.Count; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($"{i + 1}: {choices[i].name} (Is the item Equipped: {choices[i].isEquipped})\n");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            }
+            try
+            {
+                int index = Convert.ToInt32(Console.ReadLine());
+                return choices[index - 1];
+            }
+            catch (Exception ex)
+            {
+                return ChooseEquipmentEquip(choices);
             }
         }
         public static void Inventory(Player player)
@@ -227,7 +331,7 @@ namespace Console_RPG
                     }
                     else
                     {
-                        Equipment equipment = ChooseEquipment(Player.equipmentInventory);
+                        Equipment equipment = ChooseEquipmentEquip(Player.equipmentInventory);
                         if (equipment.isEquipped == false)
                         {
                             equipment.Equip(Player.player);
@@ -236,7 +340,7 @@ namespace Console_RPG
                         else if (equipment.isEquipped == true)
                         {
                             equipment.UnEquip(Player.player);
-                            Console.WriteLine($"You have now unequpped {equipment.name}\n");
+                            Console.WriteLine($"You have now unequipped {equipment.name}\n");
                         }
                     }
                 }
@@ -272,9 +376,6 @@ namespace Console_RPG
                 }
             }
         }
-
-
-    }
-        
+    }        
  }
 

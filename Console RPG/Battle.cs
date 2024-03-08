@@ -116,8 +116,6 @@ namespace Console_RPG
                     isResolved = true;
                 }
             }
-            
-
         }
     }
 }

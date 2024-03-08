@@ -24,7 +24,7 @@ namespace Console_RPG
         public static NormalEnemy mimicMiner = new NormalEnemy("Mimic Miner", hp: 250, mana: 0, new Stats(strength: 10, defense: 5, hp: 250, mana: 0), doorknobDropCount: 450, expDropCount: 150);
         public static NormalEnemy miner = new NormalEnemy("Miner", hp: 500, mana: 0, new Stats(strength: 18, defense: 10, hp: 500, mana: 0), doorknobDropCount: 250, expDropCount: 400);
         public static NormalEnemy nopeMiner = new NormalEnemy("Nope Miner", hp: 550, mana: 0, new Stats(strength: 20, defense: 10, hp: 550, mana: 0), doorknobDropCount: 275, expDropCount: 475);
-        static NormalEnemy scytheWelder = new NormalEnemy("Sycthe Welder", hp: 750, mana: 0, new Stats(strength: 25, defense: 10, hp: 750, mana: 0), doorknobDropCount: 500, expDropCount: 750);
+        static NormalEnemy scytheWelder = new NormalEnemy("Scythe Welder", hp: 750, mana: 0, new Stats(strength: 25, defense: 10, hp: 750, mana: 0), doorknobDropCount: 500, expDropCount: 750);
         public static NormalEnemy bigSpidur = new NormalEnemy("Big Spidur", hp: 900, mana: 0, new Stats(strength: 15, defense: 3, hp: 150, mana: 0), doorknobDropCount: 450, expDropCount: 100);
         public static NormalEnemy chickenGaurdian = new NormalEnemy("Chicken Guardian", hp: 1000, mana: 0, new Stats(strength: 25, defense: 10, hp: 1000, mana: 0), doorknobDropCount: 1000, expDropCount: 2000);
         public static MagicEnemy bubbleGhost = new MagicEnemy("Bubble Ghost", hp: 150, mana: 50, new Stats(strength: 5, defense: 10, hp: 150, mana: 50), doorknobDropCount: 250, expDropCount: 200, maxMana: 50, attackCost: 50);
